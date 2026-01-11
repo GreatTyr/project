@@ -274,9 +274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0778bafa173d1d4dafb02658a20ba39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraOnWorldMapMovementZoom
-  zoomSpeed: 100
-  minY: 3
-  maxY: 200
 --- !u!114 &330585549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d713b5c950cd24691de2bf210e549a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraOnWorldMapMovementWASD
-  moveSpeed: 30
 --- !u!114 &330585550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,9 +298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c75068e199ec540a4b5bf4e9e9c410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraOnWorldMapRotation
-  rotationSpeed: 50
-  minX: 30
-  maxX: 85
 --- !u!114 &330585551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,16 +342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00209ae07d8359c4c872a3a1856e01cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollowWorldMap
-  target: {fileID: 2009677407}
-  useInitialOffset: 1
-  offset: {x: 0, y: 10, z: -10}
-  smoothFollow: 1
-  smoothTime: 0.15
-  followOnlyXZ: 1
-  useBounds: 0
-  minXZ: {x: -50, y: -50}
-  maxXZ: {x: 50, y: 50}
-  snapOnStart: 1
 --- !u!114 &330585553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +486,7 @@ Transform:
   m_GameObject: {fileID: 355862299}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 59.2, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -942,7 +925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1246578654
 RectTransform:
   m_ObjectHideFlags: 0
