@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
     [Header("Cursor")]
     public bool lockCursorOnStart = true;
 
+    [Header("Animation")]
+    [SerializeField] private string speedParam = "Speed"; // имя параметра в Animator
+    private Animator animator;
+
     CharacterController cc;
     Vector2 moveInput = Vector2.zero;
     bool isSprinting = false;
@@ -44,7 +48,18 @@ public class PlayerController : MonoBehaviour
     float currentVelocityAngle;
     float smoothYaw;
 
-    void Awake() { cc = GetComponent<CharacterController>(); }
+    void Awake()
+    {
+        cc = GetComponent<CharacterController>();
+
+        // Попытка найти Animator на дочерней модели игрока (обычно модель — дочерний объект)
+        animator = GetComponentInChildren<Animator>();
+        if (animator == null)
+        {
+            Debug.LogWarning("[PlayerController] Animator not found on this GameObject or its children. " +
+                             "Назначь Animator вручную или помести Animator на дочерний объект модели.");
+        }
+    }
 
     void OnEnable()
     {
@@ -103,9 +118,18 @@ public class PlayerController : MonoBehaviour
         HandleGravityAndJump();
 
         Vector3 move = CalculateMoveVector();
-        float speed = walkSpeed * (isSprinting ? sprintMultiplier : 1f);
+        float baseSpeed = walkSpeed * (isSprinting ? sprintMultiplier : 1f);
 
-        Vector3 horizontalMotion = move * speed * Time.deltaTime;
+        // Текущая горизонтальная скорость (в units/second)
+        float currentHorizontalSpeed = baseSpeed * move.magnitude;
+
+        // Передаём скорость в Animator (если найден)
+        if (animator != null)
+        {
+            animator.SetFloat(speedParam, currentHorizontalSpeed);
+        }
+
+        Vector3 horizontalMotion = move * baseSpeed * Time.deltaTime;
         Vector3 verticalMotion = Vector3.up * verticalVelocity * Time.deltaTime;
         cc.Move(horizontalMotion + verticalMotion);
 
