@@ -17,7 +17,7 @@ public class InteractionHintUI : MonoBehaviour
     [Header("Pulse settings")]
     public Color baseColor = Color.white;
     public Color pulseColor = Color.yellow;
-    public float pulseSpeed = 0.1f;
+    public float pulseSpeed = 2f;
 
     bool visible = false;
 

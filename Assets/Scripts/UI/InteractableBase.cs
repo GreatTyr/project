@@ -10,14 +10,7 @@ public abstract class InteractableBase : MonoBehaviour, Interactable
 {
     [Header("Hint")]
     [Tooltip("Текст подсказки, который будет показан на UI при наведении")]
-    [TextArea]
     public string hintText = "Нажмите F";
-
-    [Tooltip("Тип взаимодействия (для шаблонов UI и логики)")]
-    public InteractionType interactionType = InteractionType.Simple;
-
-    [Tooltip("Отображаемая клавиша/иконка (например, F, E)")]
-    public string keyLabel = "F";
 
     [Header("Highlight")]
     public bool useEmissionHighlight = true;      // включать эмиссию материала
